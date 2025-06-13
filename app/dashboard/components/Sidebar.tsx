@@ -18,8 +18,6 @@ interface SidebarProps {
 const Sidebar: FC<SidebarProps> = ({ isOpen }) => {
   const [openMenu, setOpenMenu] = useState<string | null>("");
 
-  console.log(openMenu, "openMenu=====>");
-
   const toggleMenu = (label: string) => {
     setOpenMenu((prev) => (prev === label ? null : label));
   };
