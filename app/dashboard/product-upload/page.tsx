@@ -1,5 +1,4 @@
 import MainSection from "./components/MainSection";
-import ProductUpload from "./components/ProductUpload";
 import TopHeading from "./components/TopHeading";
 
 export default function page() {
@@ -7,7 +6,6 @@ export default function page() {
     <div>
         <TopHeading></TopHeading>
         <MainSection></MainSection>
-        <ProductUpload></ProductUpload>
     </div>
   );
 }

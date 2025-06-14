@@ -29,13 +29,13 @@ export default function ProductUpload() {
   console.log("productImage", productImage);
 
   return (
-    <div className="bg-white shadow-xl p-6 mt-6 rounded-xl">
+    <div>
       <p className="text-xl text-gray-900 mb-6">Media And Published</p>
      <div className="flex flex-wrap gap-4 items-center justify-start">
          {productImage.length > 0 && <>
       {
         productImage.map((image, index) => (
-            <div key={index} className="border border-dashed border-gray-300 w-44 h-44 rounded-xl">
+            <div key={index} className="border border-dashed border-gray-400 w-44 h-44 rounded-xl">
           <Image
             src={image}
             alt="Product"
@@ -48,7 +48,7 @@ export default function ProductUpload() {
       }
       </>}
       <div
-        className="flex flex-col w-44 h-44 border border-dashed border-gray-300 items-center justify-center bg-gray-100 p-6 rounded-xl cursor-pointer"
+        className="flex flex-col w-44 h-44 border border-dashed border-gray-400 items-center justify-center bg-gray-100 p-6 rounded-xl cursor-pointer"
         onClick={handleClick}
       >
         <Images size={64} className="text-gray-400" />

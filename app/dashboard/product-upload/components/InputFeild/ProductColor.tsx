@@ -2,19 +2,21 @@
 import { useState } from "react";
 import { MdOutlineArrowDropDown, MdOutlineArrowDropUp } from "react-icons/md";
 
-export default function Category() {
+export default function ProductColor() {
     const [ShowCategory, setShowCategory] = useState(false);
 
     return (
-        <div onClick={() => setShowCategory(!ShowCategory)} className="relative group inline-block text-left">
+        <div className="relative group inline-block text-left">
             <div>
-                <label className="text-[13px] font-bold text-gray-700 block pb-2">CATEGORY</label>
+                <label className="text-[13px] uppercase font-bold text-gray-700 block pb-2">
+                    Product Color</label>
                 <div className="flex justify-between items-center">
-                    <input required
-                    className="bg-white text-gray-800 p-4 rounded-md border border-gray-300 w-full" type="text" />
-                <div className="absolute right-3 text-2xl top-2/3 transform -translate-y-1/2 text-gray-600">
-                    {!ShowCategory ? <MdOutlineArrowDropDown /> : <MdOutlineArrowDropUp />}
-                </div>
+                    <input
+                        onClick={() => setShowCategory(!ShowCategory)}
+                        className="bg-white text-gray-800 p-4 rounded-md border border-gray-300 w-full" type="text" />
+                    <div className="absolute right-3 text-2xl top-2/3 transform -translate-y-1/2 text-gray-600">
+                        {!ShowCategory ? <MdOutlineArrowDropDown /> : <MdOutlineArrowDropUp />}
+                    </div>
 
                 </div>
             </div>

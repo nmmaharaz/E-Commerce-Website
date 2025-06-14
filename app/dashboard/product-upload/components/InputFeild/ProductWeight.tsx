@@ -1,5 +1,4 @@
 "use client"
-import Link from "next/link";
 import { useState } from "react";
 import { MdOutlineArrowDropDown, MdOutlineArrowDropUp } from "react-icons/md";
 
@@ -23,25 +22,25 @@ export default function ProductWeight() {
             </div>
             {/* Conditional rendering of dropdown */}
             <div
-                className={`absolute duration-700 left-0 z-10 w-full pt-2 ${ShowCategory ? "block" : "hidden"
+                className={`absolute duration-700 left-0 z-10 w-full ${ShowCategory ? "block" : "hidden"
                     }`}
             >
-                <div className="py-1 border rounded-md shadow-lg border-gray-200 bg-white text-sm text-gray-700">
-                    <Link href="/men" className="block px-4 py-2 hover:bg-gray-100">
+                <div className="py-1 border rounded-md shadow-lg border-gray-200 bg-white text-sm text-gray-900">
+                    <option className="block px-4 py-2 hover:bg-gray-100">
                         Men&#39;s Clothing
-                    </Link>
-                    <Link href="/women" className="block px-4 py-2 hover:bg-gray-100">
+                    </option>
+                    <option className="block px-4 py-2 hover:bg-gray-100">
                         Women&#39;s Clothing
-                    </Link>
-                    <Link href="/women" className="block px-4 py-2 hover:bg-gray-100">
+                    </option>
+                    <option className="block px-4 py-2 hover:bg-gray-100">
                         Women&#39;s Clothing
-                    </Link>
-                    <Link href="/women" className="block px-4 py-2 hover:bg-gray-100">
+                    </option>
+                    <option className="block px-4 py-2 hover:bg-gray-100">
                         Women&#39;s Clothing
-                    </Link>
-                    <Link href="/women" className="block px-4 py-2 hover:bg-gray-100">
+                    </option>
+                    <option className="block px-4 py-2 hover:bg-gray-100">
                         Women&#39;s Clothing
-                    </Link>
+                    </option>
                 </div>
             </div>
         </div>
