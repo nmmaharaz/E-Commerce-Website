@@ -9,7 +9,7 @@ interface HeaderProps {
 
 const Header: FC<HeaderProps> = ({ toggleSidebar }) => {
   return (
-    <header className="sticky top-0 z-50 flex items-center justify-between px-6 py-1 bg-white shadow-md">
+    <header className="sticky top-0 z-50 flex items-center justify-between px-6 py-1 bg-white">
      <div className="flex items-center gap-4">
        <Link href="/dashboard" className="text-2xl font-bold">
             <Image

@@ -3,44 +3,55 @@ import { useState } from "react";
 import { MdOutlineArrowDropDown, MdOutlineArrowDropUp } from "react-icons/md";
 
 export default function Category() {
-    const [ShowCategory, setShowCategory] = useState(false);
+  const [showCategory, setShowCategory] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState("");
 
-    return (
-        <div onClick={() => setShowCategory(!ShowCategory)} className="relative group inline-block text-left">
-            <div>
-                <label className="text-[13px] font-bold text-gray-700 block pb-2">CATEGORY</label>
-                <div className="flex justify-between items-center">
-                    <input required
-                    className="bg-white text-gray-800 p-4 rounded-md border border-gray-300 w-full" type="text" />
-                <div className="absolute right-3 text-2xl top-2/3 transform -translate-y-1/2 text-gray-600">
-                    {!ShowCategory ? <MdOutlineArrowDropDown /> : <MdOutlineArrowDropUp />}
-                </div>
+  const categories = [
+    "Men's Clothing",
+    "Women's Clothing",
+    "Electronics",
+    "Jewelry",
+    "Kids Clothing",
+  ];
 
-                </div>
-            </div>
-            {/* Conditional rendering of dropdown */}
-            <div
-                className={`absolute duration-700 left-0 z-10 w-full ${ShowCategory ? "block" : "hidden"
-                    }`}
-            >
-                <div className="py-1 border rounded-md shadow-lg border-gray-200 bg-white text-sm text-gray-900">
-                    <option className="block px-4 py-2 hover:bg-gray-100">
-                        Men&#39;s Clothing
-                    </option>
-                    <option className="block px-4 py-2 hover:bg-gray-100">
-                        Women&#39;s Clothing
-                    </option>
-                    <option className="block px-4 py-2 hover:bg-gray-100">
-                        Women&#39;s Clothing
-                    </option>
-                    <option className="block px-4 py-2 hover:bg-gray-100">
-                        Women&#39;s Clothing
-                    </option>
-                    <option className="block px-4 py-2 hover:bg-gray-100">
-                        Women&#39;s Clothing
-                    </option>
-                </div>
-            </div>
+  const handleCategorySelect = (category: string) => {
+    setSelectedCategory(category);
+    setShowCategory(false);
+  };
+
+  return (
+    <div className="relative inline-block text-left w-full max-w-md">
+      <label className="text-[13px] font-bold text-gray-700 block pb-2">CATEGORY</label>
+
+      <div
+        className="flex justify-between items-center cursor-pointer"
+        onClick={() => setShowCategory(!showCategory)}
+      >
+        <input
+          required
+          readOnly
+          value={selectedCategory}
+          placeholder="Select a category"
+          className="bg-white text-gray-800 p-4 rounded-md border border-gray-300 w-full cursor-pointer"
+        />
+        <div className="absolute right-3 text-2xl top-2/3 transform -translate-y-1/2 text-gray-600">
+          {!showCategory ? <MdOutlineArrowDropDown /> : <MdOutlineArrowDropUp />}
         </div>
-    );
+      </div>
+
+      {showCategory && (
+        <div className="absolute z-10 mt-1 w-full border rounded-md shadow-lg border-gray-200 bg-white text-sm text-gray-900">
+          {categories.map((category, index) => (
+            <div
+              key={index}
+              onClick={() => handleCategorySelect(category)}
+              className="block px-4 py-2 hover:bg-gray-100 cursor-pointer"
+            >
+              {category}
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
 }
