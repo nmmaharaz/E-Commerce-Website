@@ -23,7 +23,7 @@ export default function LocationModal({ isOpen, onClose }: DeliveryLocationModal
     // Full-screen overlay and center modal
     <div className="fixed inset-0  bg-opacity-30 flex items-center justify-center z-50">
       {/* Modal box */}
-      <div className="bg-white rounded-lg shadow-xl p-6 w-full max-w-md max-h-[80vh] overflow-y-auto relative">
+      <div className="bg-white rounded-lg shadow-xl p-6 w-full  max-h-[80vh] overflow-y-auto relative">
         <button
           onClick={onClose}
           className="absolute top-3 right-3 text-gray-600 hover:text-black text-xl"

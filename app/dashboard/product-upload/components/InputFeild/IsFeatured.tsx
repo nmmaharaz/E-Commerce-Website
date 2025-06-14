@@ -2,9 +2,9 @@
 import { useState } from "react";
 import { MdOutlineArrowDropDown, MdOutlineArrowDropUp } from "react-icons/md";
 
-export default function IsFeatured() {
+export default function IsFeatured({isFeatured, setIsFeatured}: {isFeatured: string, setIsFeatured: (value: string) => void}) {
     const [SubShowCategory, setSubShowCategory] = useState(false);
-    const [isFeatured, setIsFeatured] = useState("");
+    
     const categories = [
         "True",
         "False"
@@ -17,7 +17,7 @@ export default function IsFeatured() {
 
 
     return (
-       <div className="relative inline-block text-left w-full max-w-md">
+       <div className="relative inline-block text-left w-full ">
             <label className="text-[13px] uppercase font-bold text-gray-700 block pb-2">Is Featured</label>
             <div
                 className="flex justify-between items-center cursor-pointer"
@@ -36,7 +36,7 @@ export default function IsFeatured() {
             </div>
 
             {SubShowCategory && (
-                <div className="absolute z-10 mt-1 w-full border rounded-md shadow-lg border-gray-200 bg-white text-sm text-gray-900">
+                <div className="absolute z-10 w-full border rounded-md shadow-lg border-gray-200 bg-white text-sm text-gray-900">
                     {categories.map((category, index) => (
                         <div
                             key={index}

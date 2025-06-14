@@ -1,3 +1,5 @@
+"use client"
+import { useState } from "react"
 import Category from "./InputFeild/Category"
 import IsFeatured from "./InputFeild/IsFeatured"
 import Location from "./InputFeild/Location"
@@ -10,7 +12,13 @@ import ProductUpload from "./ProductUpload"
 import { FaCloudUploadAlt } from "react-icons/fa"
 
 export default function MainSection() {
-  
+  const [selectedCategory, setSelectedCategory] = useState("");
+  const [selectedSubCategory, setSelectedSubCategory] = useState("");
+  const [isFeatured, setIsFeatured] = useState("");
+  const [productWeight, setProductWeight] = useState<string[]>([]);
+  const [productSize, setProductSize] = useState<string[]>([]);
+  const [productColor, setProductColor] = useState<string[]>([]);
+  const [location, setLocation] = useState<string[]>([]);
   return (
     <div className="">
       <form className="space-y-5">
@@ -25,8 +33,8 @@ export default function MainSection() {
             <textarea rows={4} required className="bg-gray-50 text-gray-800 p-4 rounded-md border border-gray-300 w-full" />
           </div>
           <div className="grid grid-cols-1 pt-2 md:grid-cols-3 gap-4">
-            <Category></Category>
-            <SubCategory></SubCategory>
+            <Category selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory}></Category>
+            <SubCategory subselectedCategory={selectedSubCategory} setSubSelectedCategory={setSelectedSubCategory}></SubCategory>
             <div>
               <label className="text-[13px] uppercase font-bold text-gray-700 block pb-2">Cost Price</label>
               <input required className="bg-gray-50 text-gray-800 p-4 rounded-md border border-gray-300 w-full" type="text" />
@@ -39,10 +47,10 @@ export default function MainSection() {
               <label className="text-[13px] uppercase font-bold text-gray-700 block pb-2">Selling Price</label>
               <input required className="bg-gray-50 text-gray-800 p-4 rounded-md border border-gray-300 w-full" type="text" />
             </div>
-            <IsFeatured></IsFeatured>
+            <IsFeatured isFeatured={isFeatured} setIsFeatured={setIsFeatured}></IsFeatured>
           </div>
           <div className="grid grid-cols-1 pt-4 lg:grid-cols-3 gap-4">
-             <div>
+            <div>
               <label className="text-[13px] font-bold text-gray-700 block pb-2">PRODUCT STOCK</label>
               <input required className="bg-gray-50 text-gray-800 p-4 rounded-md border border-gray-300 w-full" type="text" />
             </div>
@@ -50,18 +58,18 @@ export default function MainSection() {
               <label className="text-[13px] font-bold text-gray-700 block pb-2">BRAND</label>
               <input required className="bg-gray-50 text-gray-800 p-4 rounded-md border border-gray-300 w-full" type="text" />
             </div>
-            
+
             <div>
               <label className="text-[13px] font-bold text-gray-700 block pb-2">PRODUCT RAMS</label>
               <input className="bg-gray-50 text-gray-800 p-4 rounded-md border border-gray-300 w-full" type="text" />
             </div>
-            <ProductWeight></ProductWeight>
-            <ProductSize></ProductSize>
-            <ProductColor></ProductColor>
+            <ProductWeight productWeight={productWeight} setProductWeight={setProductWeight}></ProductWeight>
+            <ProductSize productSize={productSize} setProductSize={setProductSize}></ProductSize>
+            <ProductColor productColor={productColor} setProductColor={setProductColor} ></ProductColor>
 
           </div>
           <div className="grid grid-cols-1 pt-4 lg:grid-cols-2 gap-4">
-            <Location></Location>
+            <Location location={location} setLocation={setLocation}></Location>
             <ProductRating></ProductRating>
             {/* <ProductSize></ProductSize> */}
           </div>

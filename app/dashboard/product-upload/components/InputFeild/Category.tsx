@@ -2,9 +2,14 @@
 import { useState } from "react";
 import { MdOutlineArrowDropDown, MdOutlineArrowDropUp } from "react-icons/md";
 
-export default function Category() {
+interface CategoryProps {
+  selectedCategory: string;
+  setSelectedCategory: (category: string) => void;
+}
+
+export default function Category({ selectedCategory, setSelectedCategory }: CategoryProps) {
   const [showCategory, setShowCategory] = useState(false);
-  const [selectedCategory, setSelectedCategory] = useState("");
+  
 
   const categories = [
     "Men's Clothing",
@@ -20,7 +25,7 @@ export default function Category() {
   };
 
   return (
-    <div className="relative inline-block text-left w-full max-w-md">
+    <div className="relative inline-block text-left w-full ">
       <label className="text-[13px] font-bold text-gray-700 block pb-2">CATEGORY</label>
 
       <div
@@ -40,7 +45,7 @@ export default function Category() {
       </div>
 
       {showCategory && (
-        <div className="absolute z-10 mt-1 w-full border rounded-md shadow-lg border-gray-200 bg-white text-sm text-gray-900">
+        <div className="absolute z-10 w-full border rounded-md shadow-lg border-gray-200 bg-white text-sm text-gray-900">
           {categories.map((category, index) => (
             <div
               key={index}

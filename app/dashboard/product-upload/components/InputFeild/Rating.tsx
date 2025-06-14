@@ -19,7 +19,7 @@ export default function ProductRating() {
         itemShapes: ThinStar,
         activeFillColor: "#ffb700",
         activeStrokeColor: "#ffb700",
-        inactiveFillColor: "#fbf1a9",
+        inactiveFillColor: "#ffffff",
         inactiveStrokeColor: "#d1d5db",
         itemStrokeWidth: 2,
     };
@@ -28,7 +28,7 @@ export default function ProductRating() {
         <div>
             <label className="text-[13px] font-bold text-gray-700 block pb-2">PRODUCT RAMS</label>
             <Rating
-                style={{ maxWidth: 160 }}
+                style={{ maxWidth: 130 }}
                 value={rating}
                 onChange={setRating}
                 itemStyles={rating === 0 ? defaultStyles : ratedStyles}

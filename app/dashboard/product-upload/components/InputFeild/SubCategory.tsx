@@ -2,9 +2,8 @@
 import { useState } from "react";
 import { MdOutlineArrowDropDown, MdOutlineArrowDropUp } from "react-icons/md";
 
-export default function SubCategory() {
+export default function SubCategory({subselectedCategory, setSubSelectedCategory}: {subselectedCategory: string, setSubSelectedCategory: (value: string) => void}) {
     const [subShowCategory, setSubShowCategory] = useState(false);
-    const [subselectedCategory, setSubSelectedCategory] = useState("");
     const categories = [
         "Men's Clothing",
         "Women's Clothing",
@@ -20,7 +19,7 @@ export default function SubCategory() {
 
 
     return (
-        <div className="relative inline-block text-left w-full max-w-md">
+        <div className="relative inline-block text-left w-full ">
             <label className="text-[13px] font-bold text-gray-700 block pb-2">SUB CATEGORY</label>
             <div
                 className="flex justify-between items-center cursor-pointer"
@@ -39,7 +38,7 @@ export default function SubCategory() {
             </div>
 
             {subShowCategory && (
-                <div className="absolute z-10 mt-1 w-full border rounded-md shadow-lg border-gray-200 bg-white text-sm text-gray-900">
+                <div className="absolute z-10 w-full border rounded-md shadow-lg border-gray-200 bg-white text-sm text-gray-900">
                     {categories.map((category, index) => (
                         <div
                             key={index}
